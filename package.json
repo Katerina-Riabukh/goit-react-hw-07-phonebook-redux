@@ -1,8 +1,8 @@
 {
-  "name": "goit-react-hw-06-phonebook-redux",
+  "name": "goit-react-hw-07-phonebook-redux",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Katerina-Riabukh.github.io/goit-react-hw-06-phonebook-redux/",
+  "homepage": "https://Katerina-Riabukh.github.io/goit-react-hw-07-phonebook-redux/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.3",

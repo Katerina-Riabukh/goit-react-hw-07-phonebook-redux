@@ -2,30 +2,30 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { Button, LI, Name } from "./contactItems.styled";
 import { useDispatch } from "react-redux";
-import { delateContact } from "redux/contactsSlice";
+import { deleteContact } from "../../redux/fetch";
 
 
 export const ContactItem = ({ item }) => {
 
-        const { name, number, id } = item
+        const { name, phone, id } = item
         const dispatch = useDispatch()
 
-        const delate = () => {
-                dispatch(delateContact(id))
+        const handleDelete = () => {
+                dispatch(deleteContact(id))
         }
 
         return (
                 <LI >
                         <Name>{name}</Name>
-                        <span>{number}</span>
-                        <Button onClick={delate}>Delate contact</Button>
+                        <span>{phone}</span>
+                        <Button onClick={() => handleDelete()}>Delate contact</Button>
                 </LI>
         )
 };
 
 ContactItem.propTypes = {
         name: PropTypes.string,
-        number: PropTypes.string,
+        phone: PropTypes.string,
         id: PropTypes.string
 }
 
