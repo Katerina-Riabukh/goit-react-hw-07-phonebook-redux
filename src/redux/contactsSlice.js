@@ -83,6 +83,4 @@ export const contactsSlice = createSlice({
     }
 })
 
-// export const { delateContact } = contactsSlice.actions;
-// export const { }
 export const contactsReducer = contactsSlice.reducer;
