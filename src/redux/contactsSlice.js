@@ -64,7 +64,7 @@ export const contactsSlice = createSlice({
 
         //DELETE
         [deleteContact.pending](state, action) {
-            state.isLoading = true
+            // state.isLoading = true
         },
         [deleteContact.fulfilled](state, action) {
             state.isLoading = false

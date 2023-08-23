@@ -4,11 +4,13 @@ import { ContactList } from "../contactList/contactList";
 import { FilterContacts } from "../filter/filterContacts";
 import { H1, H2, Wraper } from "./App.styled";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from '../../redux/fetch';
+import { selectContacts } from "redux/selectors";
 
 export const App = () => {
   const dispatch = useDispatch()
+  const { isLoading, error } = useSelector(selectContacts)
 
   useEffect(() => {
     dispatch(fetchContacts())
@@ -23,7 +25,8 @@ export const App = () => {
       <Form />
       <H2>Contacts</H2>
       <FilterContacts />
-
+      {isLoading && <p>Loading ...</p>}
+      {error && <p>{error}</p>}
       <ContactList />
     </Wraper>
   );

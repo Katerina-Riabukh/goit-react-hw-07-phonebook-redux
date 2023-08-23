@@ -11,7 +11,7 @@ export const Form = () => {
   const [id, setId] = useState('');
   const [phone, setPhone] = useState('');
   const dispatch = useDispatch()
-  const contacts = useSelector(selectContacts)
+  const { contacts } = useSelector(selectContacts)
 
 
   const handleInputChange = (event) => {
