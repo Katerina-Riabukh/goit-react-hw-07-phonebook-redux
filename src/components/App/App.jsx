@@ -5,11 +5,13 @@ import { H1, H2, Wraper } from './App.styled';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from '../../redux/fetch';
-import { selectContacts } from 'redux/selectors';
+import { selectError, selectIsLoading } from 'redux/selectors';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const { isLoading, error } = useSelector(selectContacts);
+
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchContacts());
