@@ -17,18 +17,18 @@ export const App = () => {
 
   }, [dispatch])
 
-
-
   return (
+
     <Wraper>
       <H1>Phone book</H1>
       <Form />
       <H2>Contacts</H2>
       <FilterContacts />
       {isLoading && <p>Loading ...</p>}
-      {error && <p>{error}</p>}
+      {error && <p>Something wrong...</p>}
       <ContactList />
     </Wraper>
+
   );
 }
 

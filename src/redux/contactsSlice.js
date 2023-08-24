@@ -6,33 +6,8 @@ export const contactsSlice = createSlice({
     initialState: {
         contacts: [],
         isLoading: false,
-        error: null
+        error: ''
     },
-    reducers: {
-        // fetchContacts: (state) => {
-        //     state.isLoading = true
-
-        //     fetch(`${BASE_URL}/contacts/`, {
-        //         method: 'GET',
-        //         headers: { 'content-type': 'application/json' }
-        //     }).then(responce => responce.json())
-        // },
-        // addContact(state, action) {
-        //     state.isLoading = true
-
-        //     fetch(`${BASE_URL}/contacts/`, {
-        //         method: 'POST',
-        //         headers: { 'content-type': 'application/json' },
-        //         body: JSON.stringify(action.payload)
-        //     }).then(responce => responce.json()).then((data) => console.log(data))
-        //     // state.contacts.push(action.payload) 
-        // },
-        // delateContact(state, action) {
-        //     console.log(action);
-        //     state.contacts = state.contacts.filter((contact) => contact.id !== action.payload)
-        // }
-    },
-
     extraReducers: {
         //FETCH
         [fetchContacts.pending](state) {
@@ -41,7 +16,6 @@ export const contactsSlice = createSlice({
         [fetchContacts.fulfilled](state, action) {
             state.isLoading = false
             state.contacts = action.payload
-            state.error = null
         },
         [fetchContacts.rejected](state, action) {
             state.isLoading = false
@@ -54,7 +28,6 @@ export const contactsSlice = createSlice({
         [addContact.fulfilled](state, action) {
             state.isLoading = false
             state.contacts.push(action.payload)
-            state.error = null
         },
         [addContact.rejected](state, action) {
             state.isLoading = false
@@ -68,7 +41,6 @@ export const contactsSlice = createSlice({
             state.contacts = state.contacts.filter((contact) => {
                 return contact.id !== action.payload.id
             })
-            state.error = null
         },
         [deleteContact.rejected](state, action) {
             state.error = action.payload
