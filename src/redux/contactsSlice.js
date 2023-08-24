@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchContacts, addContact, deleteContact } from './fetch'
 
-// const BASE_URL = 'https://64e4deaac55563802913e01c.mockapi.io/contacts/'
 export const contactsSlice = createSlice({
     name: 'contacts',
     initialState: {
@@ -64,19 +63,14 @@ export const contactsSlice = createSlice({
 
         //DELETE
         [deleteContact.pending](state, action) {
-            // state.isLoading = true
         },
         [deleteContact.fulfilled](state, action) {
-            state.isLoading = false
             state.contacts = state.contacts.filter((contact) => {
-                console.log(contact.id);
-                console.log(action.payload);
-                return contact.id !== action.payload
+                return contact.id !== action.payload.id
             })
             state.error = null
         },
         [deleteContact.rejected](state, action) {
-            state.isLoading = false
             state.error = action.payload
         }
 
